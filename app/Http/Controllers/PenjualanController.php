@@ -13,7 +13,14 @@ class PenjualanController extends Controller
         $penjualan = Penjualan::all();
         $total = Penjualan::sum('total_penjualan');
         // return response()->json($penjualan, 200);
-        return view('laporan2022', compact('penjualan', 'total'));
+
+        $data = [
+            'makanan' => Penjualan::where('kategori', 'makanan')->get(),
+            'minuman' => Penjualan::where('kategori', 'minuman')->get(),
+            'total' => Penjualan::sum('total_penjualan'),
+        ];       
+         return view('laporan2022', $data, compact('penjualan', 'total'));
+        
     }
 
     // Menyimpan data penjualan baru

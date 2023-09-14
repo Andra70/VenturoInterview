@@ -14,7 +14,6 @@ class Penjualan extends Model
 
     protected $fillable = [
         'menu',
-        'kategori',
         'total_penjualan',
     ];
 

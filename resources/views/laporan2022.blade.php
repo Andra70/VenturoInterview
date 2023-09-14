@@ -87,7 +87,7 @@ if(isset($_GET['tahun'])){
                             <tr>
                                 <td class="table-secondary" colspan="14"><b>Makanan</b></td>
                             </tr>
-                            @foreach ($penjualan as $item)
+                            @foreach ($makanan as $item)
                             <tr align="center">
                                 {{-- <td class="align-middle"><?= $item->id ?></td> --}}
                                 <td class="text-start align-middle"><?= $item->menu ?></td>
@@ -97,7 +97,7 @@ if(isset($_GET['tahun'])){
                             <tr>
                                 <td class="table-secondary" colspan="14"><b>Minuman</b></td>
                             </tr>
-                            @foreach ($penjualan as $items)
+                            @foreach ($minuman as $items)
                             <tr align="center">
                                 {{-- <td class="align-middle"><?= $items->id ?></td> --}}
                                 <td class="text-start align-middle"><?= $items->menu ?></td>
