@@ -12,14 +12,16 @@ class PenjualanController extends Controller
     {
         $penjualan = Penjualan::all();
         $total = Penjualan::sum('total_penjualan');
+        $totals = Penjualan::sum('total_penjualans');
         // return response()->json($penjualan, 200);
 
         $data = [
             'makanan' => Penjualan::where('kategori', 'makanan')->get(),
             'minuman' => Penjualan::where('kategori', 'minuman')->get(),
             'total' => Penjualan::sum('total_penjualan'),
+            'totals' => Penjualan::sum('total_penjualans'),
         ];       
-         return view('laporan2022', $data, compact('penjualan', 'total'));
+         return view('laporan2022', $data, compact('penjualan', 'total', 'totals'));
         
     }
 

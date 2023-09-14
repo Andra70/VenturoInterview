@@ -92,6 +92,7 @@ if(isset($_GET['tahun'])){
                                 {{-- <td class="align-middle"><?= $item->id ?></td> --}}
                                 <td class="text-start align-middle"><?= $item->menu ?></td>
                                 <td class="text-start align-middle"><?= $item->total_penjualan ?></td>
+                                <td class="text-start align-middle"><?= $item->total_penjualan ?></td>
                             </tr>
                             @endforeach
                             <tr>
@@ -102,13 +103,16 @@ if(isset($_GET['tahun'])){
                                 {{-- <td class="align-middle"><?= $items->id ?></td> --}}
                                 <td class="text-start align-middle"><?= $items->menu ?></td>
                                 <td class="text-start align-middle"><?= $items->total_penjualan ?></td>
+                                <td class="text-start align-middle"><?= $items->total_penjualan ?></td>
                             </tr>
                         @endforeach
                             <tr>
                                 <td class="table-secondary" colspan="14"><b>Total</b></td>
                             </tr>
                         <tr align="center">
-                                <td class="align-middle">{{ $total }}</td>
+                            <td></td>
+                                <td class="text-start align-middle">{{ $total }}</td>
+                                <td class="text-start align-middle">{{$totals}}</td>
                             </tr>
                         </tbody>
                     </table>

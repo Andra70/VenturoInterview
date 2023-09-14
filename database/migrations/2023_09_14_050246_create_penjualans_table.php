@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('menu');
             $table->integer('total_penjualan');
+            $table->integer('total_penjualans');
             $table->string('kategori');
             $table->timestamps();
         });

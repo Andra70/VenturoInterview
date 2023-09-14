@@ -18,6 +18,7 @@ class MakananSeeder extends Seeder
           Penjualan::create([
             "menu" => "Soto",
             "total_penjualan" => 7000,
+            "total_penjualans" => 7000,
             'kategori' => 'makanan',
             'created_at' => now(),
 
@@ -26,6 +27,7 @@ class MakananSeeder extends Seeder
         Penjualan::create([
             "menu" => "Nasi Goreng",
             "total_penjualan" => 12000,
+            "total_penjualans" => 12000,
             'kategori' => 'makanan',
             'created_at' => now(),
 
@@ -34,6 +36,7 @@ class MakananSeeder extends Seeder
         Penjualan::create([
             "menu" => "Lentog",
             "total_penjualan" => 6000,
+            "total_penjualans" => 6000,
             'kategori' => 'makanan',
             'created_at' => now(),
         ]);
@@ -41,6 +44,7 @@ class MakananSeeder extends Seeder
         Penjualan::create([
             "menu" => "Lontong",
             "total_penjualan" => 2000,
+            "total_penjualans" => 2000,
             'kategori' => 'makanan',
             'created_at' => now(),
         ]);
@@ -48,6 +52,7 @@ class MakananSeeder extends Seeder
         Penjualan::create([
             "menu" => "Mie Goreng",
             "total_penjualan" => 10000,
+            "total_penjualans" => 10000,
             'kategori' => 'makanan',
             'created_at' => now(),
         ]);
@@ -56,14 +61,16 @@ class MakananSeeder extends Seeder
         //MINUMAN
         Penjualan::create([
             "menu" => "Es Teh",
-                "total_penjualan" => 2000,
+            "total_penjualan" => 2000,
+            "total_penjualans" => 2000,
             'kategori' => 'minuman',
             'created_at' => now(),
         ]);
 
         Penjualan::create([
             "menu" => "Es Jeruk",
-                "total_penjualan" => 3000,
+            "total_penjualan" => 3000,
+            "total_penjualans" => 4000,
             'kategori' => 'minuman',
             'created_at' => now(),
         ]);
@@ -71,6 +78,7 @@ class MakananSeeder extends Seeder
         Penjualan::create([
             "menu" => "Aqua",
             "total_penjualan" => 3000,
+            "total_penjualans" => 3000,
             'kategori' => 'minuman',
             'created_at' => now(),
         ]);
@@ -78,6 +86,7 @@ class MakananSeeder extends Seeder
         Penjualan::create([
             "menu" => "Nutrisari",
             "total_penjualan" => 2000,
+            "total_penjualans" => 4000,
             'kategori' => 'minuman',
             'created_at' => now(),
         ]);
@@ -85,6 +94,7 @@ class MakananSeeder extends Seeder
         Penjualan::create([
             "menu" => "Susu",
             "total_penjualan" => 3000,
+            "total_penjualans" => 3000,
             'kategori' => 'minuman',
             'created_at' => now(),
         ]);
