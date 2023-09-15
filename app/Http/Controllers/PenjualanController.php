@@ -4,16 +4,33 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Penjualan;
+use Carbon\Carbon;
 
 class PenjualanController extends Controller
 {
     // Mendapatkan semua data penjualan
-    public function index()
+    public function index(Request $request)
     {
         $penjualan = Penjualan::all();
         $total = Penjualan::sum('total_penjualan');
         $totals = Penjualan::sum('total_penjualans');
         // return response()->json($penjualan, 200);
+
+        $date = $request->tahun;
+
+            switch ($date) {
+                case '2022':
+                    $penjualan = Penjualan::whereYear('created_at', 2022)->get();
+                    break;
+                case '2023':
+                    $penjualan = Penjualan::whereYear('created_at', 2023)->get();
+                    break;
+                default:
+                    // Handle the case when $request->tahun is not '2022' or '2023'
+                    break;
+}
+
+
 
         $data = [
             'makanan' => Penjualan::where('kategori', 'makanan')->get(),
@@ -21,7 +38,7 @@ class PenjualanController extends Controller
             'total' => Penjualan::sum('total_penjualan'),
             'totals' => Penjualan::sum('total_penjualans'),
         ];       
-         return view('laporan2022', $data, compact('penjualan', 'total', 'totals'));
+        return view('laporan2022', $data, compact('penjualan', 'total', 'totals'));
         
     }
 

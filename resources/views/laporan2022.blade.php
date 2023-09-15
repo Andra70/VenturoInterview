@@ -39,7 +39,6 @@ if(isset($_GET['tahun'])){
                             <div class="form-group">
                                 <select id="my-select" class="form-control" name="tahun">
                                     <option value="">Pilih Tahun</option>
-                                    <option value="2021" selected="">2021</option>
                                     <option value="2022" selected="">2022</option>
                                     <option value="2023" selected="">2023</option>
                                 </select>
