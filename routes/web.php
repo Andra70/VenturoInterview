@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PenjualanController;
+use App\Models\Penjualan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,8 @@ Route::get('/laporan', function () {
     return view('laporan');
 });
 
-Route::get('/laporan2022', [PenjualanController:: class, 'index']);
+Route::get('/laporan2023', [PenjualanController:: class, 'index']);
+Route::get('/laporan2023/json-menu',[PenjualanController::class, 'jsonMenu']);
 
 
 

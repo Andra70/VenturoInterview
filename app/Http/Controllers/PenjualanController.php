@@ -13,7 +13,6 @@ class PenjualanController extends Controller
     {
         $penjualan = Penjualan::all();
         $total = Penjualan::sum('total_penjualan');
-        $totals = Penjualan::sum('total_penjualans');
         // return response()->json($penjualan, 200);
 
         $date = $request->tahun;
@@ -25,9 +24,7 @@ class PenjualanController extends Controller
                 case '2023':
                     $penjualan = Penjualan::whereYear('created_at', 2023)->get();
                     break;
-                default:
-                    // Handle the case when $request->tahun is not '2022' or '2023'
-                    break;
+                
 }
 
 
@@ -36,9 +33,8 @@ class PenjualanController extends Controller
             'makanan' => Penjualan::where('kategori', 'makanan')->get(),
             'minuman' => Penjualan::where('kategori', 'minuman')->get(),
             'total' => Penjualan::sum('total_penjualan'),
-            'totals' => Penjualan::sum('total_penjualans'),
         ];       
-        return view('laporan2022', $data, compact('penjualan', 'total', 'totals'));
+        return view('laporan2023', $data, compact('penjualan', 'total'));
         
     }
 
@@ -70,36 +66,26 @@ class PenjualanController extends Controller
         return response()->json($penjualan, 200);
     }
 
-    // Memperbarui data penjualan berdasarkan ID
-    public function update(Request $request, $id)
+    public function jsonTransaksi(Request $request)
     {
-        $request->validate([
-            'menu' => 'required|string',
-            'kategori' => 'required|string',
-        ]);
+        $all = Penjualan::get(['tanggal', 'menu', 'total']); // Ambil hanya atribut-atribut yang Anda inginkan
 
-        $penjualan = Penjualan::find($id);
-
-        if (!$penjualan) {
-            return response()->json(['message' => 'Data penjualan tidak ditemukan'], 404);
+        // Filter item dengan nilai null
+        $filteredData = [];
+        foreach ($all as $item) {
+            if ($item['tanggal'] !== null && $item['menu'] !== null && $item['total'] !== null) {
+                $filteredData[] = $item;
+            }
         }
 
-        $penjualan->update($request->all());
-
-        return response()->json($penjualan, 200);
+        $jsonData = json_encode($filteredData);
+        return $jsonData;
     }
 
-    // Menghapus data penjualan berdasarkan ID
-    public function destroy($id)
+    public function jsonMenu(Request $request)
     {
-        $penjualan = Penjualan::find($id);
-
-        if (!$penjualan) {
-            return response()->json(['message' => 'Data penjualan tidak ditemukan'], 404);
-        }
-
-        $penjualan->delete();
-
-        return response()->json(['message' => 'Data penjualan berhasil dihapus'], 200);
+        $penjualan = Penjualan::get(['menu', 'kategori']); // Ambil hanya atribut-atribut yang Anda inginkan
+        $jsonData = json_encode($penjualan);
+        return $jsonData;
     }
 }

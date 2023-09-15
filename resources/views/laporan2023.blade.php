@@ -39,16 +39,17 @@ if(isset($_GET['tahun'])){
                             <div class="form-group">
                                 <select id="my-select" class="form-control" name="tahun">
                                     <option value="">Pilih Tahun</option>
-                                    <option value="2022" selected="">2022</option>
-                                    <option value="2023" selected="">2023</option>
+                                    <option value="2022">2022</option>
+                                    <option value="2023">2023</option>
                                 </select>
+                                
                             </div>
                         </div>
                         <div class="col-4">
                             <button type="submit" class="btn btn-primary">
                                 Tampilkan
                             </button>
-                            <a href="http://tes-web.landa.id/intermediate/menu" target="_blank" rel="Array Menu" class="btn btn-secondary">
+                            <a href="/laporan2023/json-menu" target="_blank" rel="Array Menu" class="btn btn-secondary">
                                 Json Menu
                             </a>
                             <a href="http://tes-web.landa.id/intermediate/transaksi?tahun=2021" target="_blank" rel="Array Transaksi" class="btn btn-secondary">
@@ -111,17 +112,16 @@ if(isset($_GET['tahun'])){
                         <tr align="center">
                             <td></td>
                                 <td class="text-start align-middle">{{ $total }}</td>
-                                <td class="text-start align-middle">{{$totals}}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <?php if(isset($menu)): ?>
+            <?php if(isset($penjualan)): ?>
                 <div class="row m-3">
                     <div class="col-6">
                         <h4>Isi Json Menu</h4>
-                        <pre style="height: 400px; background:#eaeaea;"><?php echo json_encode($menu, JSON_PRETTY_PRINT); ?></pre>
+                        <pre style="height: 400px; background:#eaeaea;"><?php echo json_encode($penjualan, JSON_PRETTY_PRINT); ?></pre>
                     </div>
                     <div class="col-6">
                         <h4>Isi Json Transaksi</h4>

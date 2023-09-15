@@ -15,7 +15,7 @@ class Penjualan extends Model
     protected $fillable = [
         'menu',
         'total_penjualan',
-        'total_penjualans'
+        'kategori',
     ];
 
     public function pertahun()
