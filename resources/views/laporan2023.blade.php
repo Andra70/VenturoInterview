@@ -52,7 +52,7 @@ if(isset($_GET['tahun'])){
                             <a href="/laporan2023/json-menu" target="_blank" rel="Array Menu" class="btn btn-secondary">
                                 Json Menu
                             </a>
-                            <a href="/laporan2023" target="_blank" rel="Array Transaksi" class="btn btn-secondary">
+                            <a href="/laporan2023/json-transaksi" target="_blank" rel="Array Transaksi" class="btn btn-secondary">
                                 Json Transaksi
                             </a>
                         </div>
@@ -117,19 +117,18 @@ if(isset($_GET['tahun'])){
                     </table>
                 </div>
             </div>
-            <?php if(isset($penjualan)): ?>
+            <?php if (isset($penjualan) || isset($transaksi)): ?>
                 <div class="row m-3">
-                    <div class="col-6">
-                        <h4>Isi Json Menu</h4>
-                        <pre style="height: 400px; background:#eaeaea;"><?php echo json_encode($penjualan, JSON_PRETTY_PRINT); ?></pre>
-                    </div>
-                    <div class="col-6">
-                        <h4>Isi Json Transaksi</h4>
-                        <pre style="height: 400px; background:#eaeaea;"><?php echo json_encode($transaksi, JSON_PRETTY_PRINT); ?></pre>
-                    </div>
+                        <div class="col-6">
+                            <h4>Isi Json Menu</h4>
+                            <pre style="height: 400px; background:#eaeaea;"><?php echo json_encode($penjualan, JSON_PRETTY_PRINT); ?></pre>
+                        </div>
+                        <div class="col-6">
+                            <h4>Isi Json Transaksi</h4>
+                            <pre style="height: 400px; background:#eaeaea;"><?php echo json_encode($transaksi, JSON_PRETTY_PRINT); ?></pre>
+                        </div>
                 </div>
-                <?php endif; ?>
-
+            <?php endif; ?>
             </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

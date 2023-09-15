@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PenjualanController;
 use App\Models\Penjualan;
+use App\Models\Transaksi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::get('/laporan', function () {
 
 Route::get('/laporan2023', [PenjualanController:: class, 'index']);
 Route::get('/laporan2023/json-menu',[PenjualanController::class, 'jsonMenu']);
+Route::get('/laporan2023/json-transaksi',[PenjualanController::class, 'jsonTransaksi']);
 
 
 

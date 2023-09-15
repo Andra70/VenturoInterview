@@ -13,6 +13,7 @@ class Penjualan extends Model
     protected $table = 'penjualan';
 
     protected $fillable = [
+        'tanggal',
         'menu',
         'total_penjualan',
         'kategori',

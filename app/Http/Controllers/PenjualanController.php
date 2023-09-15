@@ -66,26 +66,27 @@ class PenjualanController extends Controller
         return response()->json($penjualan, 200);
     }
 
+
+    public function jsonMenu(Request $request)
+    {
+        $penjualan = Penjualan::get(['menu', 'kategori']); // Ambil hanya atribut-atribut yang Anda inginkan
+        $jsonData = json_encode($penjualan);
+        return $jsonData;
+    }
+
     public function jsonTransaksi(Request $request)
     {
-        $all = Penjualan::get(['tanggal', 'menu', 'total']); // Ambil hanya atribut-atribut yang Anda inginkan
+        $transaksi = Penjualan::get(['tanggal', 'menu', 'total_penjualan']); // Ambil hanya atribut-atribut yang Anda inginkan
 
         // Filter item dengan nilai null
         $filteredData = [];
-        foreach ($all as $item) {
+        foreach ($transaksi as $item) {
             if ($item['tanggal'] !== null && $item['menu'] !== null && $item['total'] !== null) {
                 $filteredData[] = $item;
             }
         }
 
         $jsonData = json_encode($filteredData);
-        return $jsonData;
-    }
-
-    public function jsonMenu(Request $request)
-    {
-        $penjualan = Penjualan::get(['menu', 'kategori']); // Ambil hanya atribut-atribut yang Anda inginkan
-        $jsonData = json_encode($penjualan);
         return $jsonData;
     }
 }

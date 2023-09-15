@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('penjualan', function (Blueprint $table) {
             $table->id();
+            $table->date('tanggal');
             $table->string('menu');
             $table->integer('total_penjualan');
             $table->string('kategori');
