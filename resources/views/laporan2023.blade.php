@@ -52,7 +52,7 @@ if(isset($_GET['tahun'])){
                             <a href="/laporan2023/json-menu" target="_blank" rel="Array Menu" class="btn btn-secondary">
                                 Json Menu
                             </a>
-                            <a href="http://tes-web.landa.id/intermediate/transaksi?tahun=2021" target="_blank" rel="Array Transaksi" class="btn btn-secondary">
+                            <a href="/laporan2023/json-tranksaksi" target="_blank" rel="Array Transaksi" class="btn btn-secondary">
                                 Json Transaksi
                             </a>
                         </div>
